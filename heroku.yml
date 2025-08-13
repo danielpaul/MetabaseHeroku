@@ -1,3 +1,14 @@
+# heroku.yml
+setup:
+  addons:
+    # Pick a plan; Essential-0 is the entry plan today
+    - plan: heroku-postgresql:essential-0
+      as: DATABASE          # creates DATABASE_URL
+
+  # (Optional) config you want set at app creation
+  # config:
+  #   MB_SITE_URL: https://dbexplore.herokuapp.com
+
 build:
   docker:
     web: Dockerfile
