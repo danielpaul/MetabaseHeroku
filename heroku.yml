@@ -1,13 +1,12 @@
 # heroku.yml
 setup:
   addons:
-    # Pick a plan; Essential-0 is the entry plan today
     - plan: heroku-postgresql:essential-0
-      as: DATABASE          # creates DATABASE_URL
+      as: DATABASE
 
-  # (Optional) config you want set at app creation
-  # config:
-  #   MB_SITE_URL: https://dbexplore.herokuapp.com
+  config:
+    JAVA_TOOL_OPTIONS: -Xms256m -Xmx384m -XX:MaxMetaspaceSize=128m -XX:+UseSerialGC -XX:+ExitOnOutOfMemoryError
+    MB_JETTY_MAXTHREADS: "50"
 
 build:
   docker:
