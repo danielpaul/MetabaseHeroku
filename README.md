@@ -1,4 +1,4 @@
-# Metabase on Heroku (via `heroku.yml`) — **Updated**
+# Metabase on Heroku (via `heroku.yml`)
 
 Production-ready Metabase on Heroku using Docker **and** a tiny wrapper entrypoint. This repo:
 
