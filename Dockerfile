@@ -7,5 +7,7 @@ ENV MB_JETTY_HOST=0.0.0.0
 
 # Heroku (container stack) runs the image's CMD; keep Metabase's entrypoint
 # and provide a CMD that forwards to the standard startup script while
-# injecting the Heroku port.
-CMD ["/bin/sh","-lc","export MB_JETTY_PORT=${PORT:-3000}; exec /app/run_metabase.sh"]
+# injecting the Heroku port and DB URL.
+CMD ["/bin/sh","-lc","export MB_DB_CONNECTION_URI=\"$DATABASE_URL\"; \
+                      export MB_JETTY_PORT=${PORT:-3000}; \
+                      exec /app/run_metabase.sh"]
